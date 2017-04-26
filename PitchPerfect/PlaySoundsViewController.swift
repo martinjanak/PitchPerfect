@@ -36,6 +36,7 @@ class PlaySoundsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setButtonsImageMode()
         configureUI(.notPlaying)
     }
     
@@ -54,12 +55,21 @@ class PlaySoundsViewController: UIViewController {
             case .reverb:
                 playSound(reverb: true)
         }
-        
         configureUI(.playing)
     }
     
     @IBAction func stopButtonPressed(_ sender: AnyObject) {
         stopAudio()
+    }
+    
+    func setButtonsImageMode() {
+        slowButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        fastButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        highPitchButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        lowPitchButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        echoButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        reverbButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
+        stopButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
     }
 
 }
